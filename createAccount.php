@@ -1,8 +1,7 @@
 <?php
 include("functions.php");
+include("models/user.php");
 $view = "createAccount";
-
-dbConnections();
 
 var_dump($_POST);
 
@@ -19,7 +18,9 @@ try
 
         if ($error == [])
         {
-            echo "Succès!!";
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+            addUser($username, $email, $passwordHash, USER);
+           // header('Location: login.php');
         }
         else
         {
@@ -28,13 +29,6 @@ try
                 echo $i;
             }
         }
-
-
-        echo "check";
-    }
-    else
-    {
-        echo "non";
     }
 }
 catch(Exception $e)
