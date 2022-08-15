@@ -2,5 +2,5 @@
 include("functions.php");
 $view = "index";
 
-include("view/".isLogged().".phtml");
+include("tpl/".isLogged().".phtml");
 
