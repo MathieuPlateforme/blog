@@ -3,7 +3,10 @@ session_start();
 include("lib/db.php");
 include("lib/functions.php");
 include("models/user.php");
+
 $view = "createAccount";
+$username = "";
+$email = "";
 
 try
 {

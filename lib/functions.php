@@ -3,7 +3,18 @@ include("config/config.php");
 
 function isLogged()
 {
-    return "headerdefault";
+    if (!isset($_SESSION['user']))
+    {
+        return 'headerdefault';
+    }
+    if (isset($_SESSION['user']) && $_SESSION['user']['rank'] == 1)
+    {
+        return 'headerlogin';
+    }
+    if (isset($_SESSION['user']) && $_SESSION['user']['rank'] == 2)
+    {
+        return 'headeradmin';
+    }
 }
 
 function checkAccount($username, $email, $password, $passwordConfirm)
@@ -31,9 +42,12 @@ function checkAccount($username, $email, $password, $passwordConfirm)
     {
         $error['5'] = "Erreur: Veuillez utiliser des caractères normaux.";
     }
-    if ($username == $checkDuplicate['username'] || $email == $checkDuplicate['email'])
+    if ($checkDuplicate != false)
+    {
+        if ($username == $checkDuplicate['username'] || $email == $checkDuplicate['email'])
     {
         $error['6'] = "Erreur: Nom d'utilisateur ou e-mail déjà existants.";
+    }
     }
     if ($username == "" || $email == "" || $password == "")
     {
@@ -49,6 +63,10 @@ function checkLogin($username, $password)
     if (str_contains($username, '\'') || str_contains($username, '\"') || str_contains($password, '\'') || str_contains($password, '\"'))
     {
         $error['1'] = "Petit cachottier";
+    }
+    if ($password == "")
+    {
+        $error['2'] = "Veuillez entrer un mot de passe";
     }
     return $error;
 }

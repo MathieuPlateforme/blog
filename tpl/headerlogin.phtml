@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title><?php echo $view?></title>
+    <nav>
+        <a href="#" rel="noopener noreferrer">Accueil</a>
+        <a href="#" rel="noopener noreferrer">Articles</a>
+        <a href="#" rel="noopener noreferrer">Profil</a>
+        <a href="logout.php" rel="noopener noreferrer">Déconnexion</a>
+    </nav>
+</head>
+<body>
+    <?php include("view/".$view.".phtml"); ?>
+</body>
+</html>

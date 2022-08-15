@@ -1,9 +1,12 @@
 <?php
 session_start();
+var_dump($_SESSION);
 include("lib/db.php");
 include("lib/functions.php");
+include("models/user.php");
 
 $view = "login";
+$username = "";
 
 try
 {
@@ -12,10 +15,28 @@ try
         $username = $_POST['username'];
         $password = $_POST['password'];
         $error = checkLogin($username, $password);
-        
         if ($error == [])
         {
-            echo "nickel";
+            $credentials = userLogin($username);
+            if ($credentials == false)
+            {
+               $error['1'] = 'Identifiants incorrect';
+               echo $error['1'];
+            }
+            else
+            {
+                if (password_verify($password, $credentials['password']) == true)
+                {
+                    $_SESSION['user'] = ['id'=>$credentials['id'], 'username'=>$credentials['username'], 'email'=>$credentials['email'], 'rank'=>$credentials['id_droits']];
+                    header("Location: index.php");
+                }
+                else
+                {
+                    $error['1'] = 'Identifiants incorrect';
+                    echo $error['1'];
+                }
+            }
+
         }
         else
         {

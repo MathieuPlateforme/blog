@@ -2,6 +2,7 @@
 
 $dbh = dbConnections();
 
+
 function addUser($username, $email, $password, $rank)
 {
     global $dbh;
@@ -25,4 +26,16 @@ function checkDuplicateAccount($username, $email)
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;       
+}
+
+function userLogin($username)
+{
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT *
+                            FROM utilisateurs
+                            WHERE username = :a');
+    $stmt->bindValue('a', $username);
+    $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $data;
 }
