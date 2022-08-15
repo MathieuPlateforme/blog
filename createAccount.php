@@ -1,10 +1,9 @@
 <?php
+session_start();
 include("lib/db.php");
 include("lib/functions.php");
 include("models/user.php");
 $view = "createAccount";
-
-var_dump($_POST);
 
 try
 {
@@ -21,7 +20,7 @@ try
         {
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
             addUser($username, $email, $passwordHash, USER);
-           // header('Location: login.php');
+            header('Location: login.php');
         }
         else
         {

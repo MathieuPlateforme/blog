@@ -35,6 +35,20 @@ function checkAccount($username, $email, $password, $passwordConfirm)
     {
         $error['6'] = "Erreur: Nom d'utilisateur ou e-mail déjà existants.";
     }
+    if ($username == "" || $email == "" || $password == "")
+    {
+        $error['7'] = "Erreur: Une erreur est survenu, veuillez re-essayer.";
+    }
 
+    return $error;
+}
+
+function checkLogin($username, $password)
+{
+    $error = [];
+    if (str_contains($username, '\'') || str_contains($username, '\"') || str_contains($password, '\'') || str_contains($password, '\"'))
+    {
+        $error['1'] = "Petit cachottier";
+    }
     return $error;
 }
