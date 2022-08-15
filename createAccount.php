@@ -1,5 +1,6 @@
 <?php
-include("functions.php");
+include("lib/db.php");
+include("lib/functions.php");
 include("models/user.php");
 $view = "createAccount";
 
