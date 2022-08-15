@@ -6,6 +6,7 @@ include("lib/functions.php");
 include("models/user.php");
 
 $view = "login";
+$nav = isLogged();
 $username = "";
 
 try
@@ -52,4 +53,4 @@ catch(Exception $e)
     echo "Erreur fatale: ".$e->getMessage();
 }
 
-include("tpl/".isLogged().".phtml");
+include("tpl/layout.phtml");

@@ -5,6 +5,7 @@ include("lib/functions.php");
 include("models/user.php");
 
 $view = "createAccount";
+$nav = isLogged();
 $username = "";
 $email = "";
 
@@ -16,7 +17,7 @@ try
         $email = $_POST['email'];
         $password = $_POST['password'];
         $passwordConfirm = $_POST['passwordConfirm'];
-        
+
         $error = checkAccount($username, $email, $password, $passwordConfirm);
 
         if ($error == [])
@@ -39,4 +40,4 @@ catch(Exception $e)
     echo "Erreur fatale: ".$e->getMessage();
 }
 
-include("tpl/".isLogged().".phtml");
+include("tpl/layout.phtml");

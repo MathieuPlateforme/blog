@@ -1,10 +1,9 @@
 <?php
 session_start();
-var_dump($_SESSION);
 include("lib/db.php");
 include("lib/functions.php");
 
 $view = "index";
+$nav = isLogged();
 
-include("tpl/".isLogged().".phtml");
-
+include("tpl/layout.phtml");

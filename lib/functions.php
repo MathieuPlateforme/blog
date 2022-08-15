@@ -5,15 +5,15 @@ function isLogged()
 {
     if (!isset($_SESSION['user']))
     {
-        return 'headerdefault';
+        return 'navDefault';
     }
     if (isset($_SESSION['user']) && $_SESSION['user']['rank'] == 1)
     {
-        return 'headerlogin';
+        return 'navUser';
     }
     if (isset($_SESSION['user']) && $_SESSION['user']['rank'] == 2)
     {
-        return 'headeradmin';
+        return 'navAdmin';
     }
 }
 

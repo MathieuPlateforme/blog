@@ -1,0 +1,19 @@
+html
+{
+    font-family: 'Rubik', sans-serif;
+}
+
+nav
+{
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(47, 51, 56);
+}
+nav a
+{
+    text-decoration: none;
+    font-size: 1.2em;
+    margin: 0 30px;
+    color:rgb(171, 39, 204);
+}
