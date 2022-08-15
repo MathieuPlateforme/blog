@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
-    <title>Default</title>
+    <title><?php echo $view?></title>
+    <nav>
+        <a href="#" rel="noopener noreferrer">Accueil</a>
+        <a href="#" rel="noopener noreferrer">Articles</a>
+        <a href="#" rel="noopener noreferrer">Connexion</a>
+    </nav>
 </head>
 <body>
     <?php include($view.".phtml"); ?>
