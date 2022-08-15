@@ -31,7 +31,7 @@ function checkAccount($username, $email, $password, $passwordConfirm)
     {
         $error['2'] = "Erreur: Limite de caractères dépassés";
     }
-    if (strlen($password < 7))
+    if (strlen($password) < 7)
     {
         $error['3'] = "Erreur: Veuillez entrez un mot de passe de 8 caractères minimum";
     }
@@ -39,6 +39,6 @@ function checkAccount($username, $email, $password, $passwordConfirm)
     {
         $error['4'] = "Erreur: Veuillez utiliser des caractères normaux";
     }
-    
+
     return $error;
 }
