@@ -1,0 +1,9 @@
+<form action="editArticle.php" method="POST">
+    <p>Entrez votre article: <input type="text" name="article" value="<?= $data['article'] ?>" required></p>
+    <select name="category" id="category">
+    <?php foreach ($categories as $a): ?>
+        <option value="<?= $a['id'] ?>"><?= $a['nom']  ?></option>
+    <?php endforeach ?>
+    </select>
+    <button type="submit" name="id" value="<?= $id ?>">Confirmez</button>
+</form>

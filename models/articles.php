@@ -10,6 +10,16 @@ function addCategory($name)
     $stmt->bindValue('a', $name);
     $stmt->execute();     
 }
+function editCategory($name, $id)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("UPDATE categories
+                            SET nom = :a
+                            WHERE id = :b");
+    $stmt->bindValue('a', $name);
+    $stmt->bindValue('b', $id);
+    $stmt->execute();   
+}
 function getCategoryByName($name)
 {
     global $dbh;
@@ -29,5 +39,18 @@ function addArticle($article, $idCategory, $idUser)
     $stmt->bindValue('a', $article);
     $stmt->bindValue('b', $idUser);
     $stmt->bindValue('c', $idCategory);
+    $stmt->execute();   
+}
+
+function editArticle($article, $idCategory, $idUser, $idArticle)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("UPDATE articles 
+                            SET article = :a,  id_utilisateur = :b, id_categorie = :c
+                            WHERE id = :d");
+    $stmt->bindValue('a', $article);
+    $stmt->bindValue('b', $idUser);
+    $stmt->bindValue('c', $idCategory);
+    $stmt->bindValue('d', $idArticle);
     $stmt->execute();   
 }

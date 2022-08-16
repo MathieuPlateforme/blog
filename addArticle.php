@@ -17,9 +17,9 @@ if(isLogged() == "navAdmin")
         $article = $_POST['article'];
         $idCategory = $_POST['category'];
         $idUser = $_SESSION['user']['id'];
-        
+
         addArticle($article, $idCategory, $idUser);
-        header('Location: listCategory.php');
+        header('Location: listArticle.php');
     }
     include("tpl/layout.phtml");
 }

@@ -7,6 +7,9 @@
         <p>Id Utilisateur: <?= $i['id_utilisateur'] ?></p>
         <p>Id Catégorie: <?= $i['id_categorie'] ?></p>
         <p>Date: <?= $i['date'] ?></p>
+        <form action="editArticle.php" method="post">
+            <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
+        </form>
     <?php endforeach ?>
 <?php else: ?>
     <p>Aucun article n'est disponible.</p>

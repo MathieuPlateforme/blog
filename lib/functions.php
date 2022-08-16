@@ -73,6 +73,27 @@ function checkLogin($username, $password)
     return $error;
 }
 
+function listContent($table, $ammount)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM $table
+                            ORDER BY id DESC limit $ammount");
+    $stmt->execute();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $data;
+}
+
+function getContent($table, $id)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM $table
+                            WHERE id = :id");
+    $stmt->bindValue("id", $id);
+    $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $data;
+}
+
 function deleteContent($table, $id)
 {
     global $dbh;
@@ -81,14 +102,4 @@ function deleteContent($table, $id)
     $stmt->bindValue("a", $id);
     $stmt->execute();
     
-}
-
-function listContent($table, $ammount)
-{
-    global $dbh;
-    $stmt = $dbh->prepare("SELECT * FROM $table
-                            ORDER BY id DESC limit $ammount");
-    $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $data;
 }
