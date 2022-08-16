@@ -80,5 +80,15 @@ function deleteContent($table, $id)
                             WHERE id = :a)");
     $stmt->bindValue("a", $id);
     $stmt->execute();
+    
+}
+
+function listContent($table, $ammount)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT * FROM $table
+                            ORDER BY id DESC limit $ammount");
+    $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $data;
 }

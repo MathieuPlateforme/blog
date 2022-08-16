@@ -1,0 +1,10 @@
+<a href="addCategory.php">Ajouter une catégorie</a>
+
+<?php if ($data != false): ?>
+    <?php foreach ($data as $i): ?>
+        <p>Id: <?= $i['id'] ?></p>
+        <p>Name: <?= $i['nom'] ?></p>
+    <?php endforeach ?>
+<?php else: ?>
+    <p>Aucune catégorie n'est disponible.</p>
+<?php endif ?>

@@ -10,15 +10,6 @@ function addCategory($name)
     $stmt->bindValue('a', $name);
     $stmt->execute();     
 }
-function getCategories()
-{
-    global $dbh;
-    $stmt = $dbh->prepare("SELECT *
-                            FROM categories)");
-    $stmt->execute();
-    $data = $stmt->fetch(PDO::FETCH_ASSOC);
-    return $data;       
-}
 function getCategoryByName($name)
 {
     global $dbh;
@@ -30,4 +21,13 @@ function getCategoryByName($name)
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;       
 }
-
+function addArticle($article, $idCategory, $idUser)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("INSERT INTO articles (article, id_utilisateur, id_categorie) 
+                            VALUES (:a, :b, :c)");
+    $stmt->bindValue('a', $article);
+    $stmt->bindValue('b', $idUser);
+    $stmt->bindValue('c', $idCategory);
+    $stmt->execute();   
+}

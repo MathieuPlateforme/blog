@@ -1,0 +1,13 @@
+<a href="addArticle.php">Ajouter un article</a>
+
+<?php if ($data != false): ?>
+    <?php foreach ($data as $i): ?>
+        <p>Id: <?= $i['id'] ?></p>
+        <p>Article: <?= $i['article'] ?></p>
+        <p>Id Utilisateur: <?= $i['id_utilisateur'] ?></p>
+        <p>Id Catégorie: <?= $i['id_categorie'] ?></p>
+        <p>Date: <?= $i['date'] ?></p>
+    <?php endforeach ?>
+<?php else: ?>
+    <p>Aucun article n'est disponible.</p>
+<?php endif ?>
