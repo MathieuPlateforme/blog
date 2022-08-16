@@ -1,6 +1,8 @@
 <?php
 include("config/config.php");
 
+$dbh = dbConnections();
+
 function isLogged()
 {
     if (!isset($_SESSION['user']))
@@ -69,4 +71,14 @@ function checkLogin($username, $password)
         $error['2'] = "Veuillez entrer un mot de passe";
     }
     return $error;
+}
+
+function deleteContent($table, $id)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("DELETE FROM $table
+                            WHERE id = :a)");
+    $stmt->bindValue("a", $id);
+    $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
 }
