@@ -1,6 +1,5 @@
 <?php
 session_start();
-var_dump($_SESSION);
 include("lib/db.php");
 include("lib/functions.php");
 include("models/user.php");

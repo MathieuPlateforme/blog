@@ -7,15 +7,15 @@ function isLogged()
 {
     if (!isset($_SESSION['user']))
     {
-        return 'navDefault';
+        return $data['nav'] = 'navDefault';
     }
     if (isset($_SESSION['user']) && $_SESSION['user']['rank'] == 1)
     {
-        return 'navUser';
+        return $data['nav'] = 'navUser';
     }
     if (isset($_SESSION['user']) && $_SESSION['user']['rank'] == 2)
     {
-        return 'navAdmin';
+        return $data['nav'] = 'navAdmin';
     }
 }
 
