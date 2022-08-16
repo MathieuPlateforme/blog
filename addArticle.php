@@ -11,7 +11,7 @@ $article = "";
 
 if(isLogged() == "navAdmin")
 {
-    $categories['a'] = listContent('categories', 100);
+    $categories = listContent('categories', 100);
     if(array_key_exists('article', $_POST))
     {
         $article = $_POST['article'];

@@ -54,3 +54,15 @@ function editArticle($article, $idCategory, $idUser, $idArticle)
     $stmt->bindValue('d', $idArticle);
     $stmt->execute();   
 }
+
+function getArticleByCategory($id)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("SELECT *
+                            FROM articles
+                            WHERE id_categorie = :a");
+    $stmt->bindValue("a", $id);
+    $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $data;
+}

@@ -10,6 +10,9 @@
         <form action="editArticle.php" method="post">
             <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
         </form>
+        <form action="delArticle.php" method="post">
+            <button type="submit" name="id" value="<?= $i['id'] ?>">Suprimmer</button>
+        </form>
     <?php endforeach ?>
 <?php else: ?>
     <p>Aucun article n'est disponible.</p>

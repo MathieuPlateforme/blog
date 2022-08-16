@@ -7,6 +7,9 @@
         <form action="editCategory.php" method="post">
             <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
         </form>
+        <form action="delCategory.php" method="post">
+            <button type="submit" name="id" value="<?= $i['id'] ?>">Suprimmer</button>
+        </form>
     <?php endforeach ?>
 <?php else: ?>
     <p>Aucune catégorie n'est disponible.</p>

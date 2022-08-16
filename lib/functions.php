@@ -98,7 +98,7 @@ function deleteContent($table, $id)
 {
     global $dbh;
     $stmt = $dbh->prepare("DELETE FROM $table
-                            WHERE id = :a)");
+                            WHERE id = :a");
     $stmt->bindValue("a", $id);
     $stmt->execute();
     
