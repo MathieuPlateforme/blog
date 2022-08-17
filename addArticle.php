@@ -18,8 +18,15 @@ if(isLogged() == "navAdmin")
         $idCategory = $_POST['category'];
         $idUser = $_SESSION['user']['id'];
 
-        addArticle($article, $idCategory, $idUser);
-        header('Location: listArticle.php');
+        if(strlen($article) < 1024)
+        {
+            addArticle($article, $idCategory, $idUser);
+            header('Location: listArticle.php');
+        }
+        else
+        {
+            $error = "Limite de caractères atteints";
+        }
     }
     include("tpl/layout.phtml");
 }

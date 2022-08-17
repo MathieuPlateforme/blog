@@ -2,18 +2,65 @@ html
 {
     font-family: 'Rubik', sans-serif;
 }
+li
+{
+    list-style: none;
+}
 
-nav
+header nav
 {
     padding: 20px;
     display: flex;
     justify-content: space-around;
     background-color: rgb(47, 51, 56);
 }
-nav a
+header nav a
 {
     text-decoration: none;
     font-size: 1.2em;
     margin: 0 30px;
     color:rgb(171, 39, 204);
+}
+main
+{
+    margin: 0 10%;
+}
+textarea
+{
+    border-radius: 25px;
+    padding: 10px;
+    border-width: 2px;
+    border-color: purple;
+}
+.addContent
+{
+    border-radius: 25px;
+    border-color: aqua;
+    border-width: 10px;
+    background-color: gray;
+    padding: 50px 0;
+    margin: 20px 10%;
+}
+.addContent p
+{
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    color:white;
+}
+
+.addContent input
+{
+    display: block;
+}
+.addContent select
+{
+    width: 20%;
+    text-align: center;
+}
+.addContent button
+{
+    border-radius: 25px;
+    font-size: 1.5em;
+    padding: 10px;
 }
