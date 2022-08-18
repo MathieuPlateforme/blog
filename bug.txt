@@ -1,3 +1,0 @@
-Converti le text d'un article en HTML si possible
-Crée une fonction date
-Faire un INNER JOIN pour choper les noms Auteur Catégorie sans crée une nouvelle fonction
