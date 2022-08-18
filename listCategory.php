@@ -10,7 +10,7 @@ $nav = isLogged();
 
 if(isLogged() == "navAdmin")
 {
-    $data = listContent('categories', 5);
+    $data = listContent('categories', 100);
     include("tpl/layout.phtml");
 }
 else

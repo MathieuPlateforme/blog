@@ -64,3 +64,12 @@ textarea
     font-size: 1.5em;
     padding: 10px;
 }
+.listContent
+{
+    width: 100%;
+}
+.listContent th
+{
+    padding: 10px;
+    text-align: center;
+}

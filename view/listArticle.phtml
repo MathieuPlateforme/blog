@@ -1,19 +1,37 @@
 <a href="addArticle.php">Ajouter un article</a>
-
-<?php if ($data != false): ?>
-    <?php foreach ($data as $i): ?>
-        <p>Id: <?= $i['id'] ?></p>
-        <p>Article: <?= $i['article'] ?></p>
-        <p>Id Utilisateur: <?= $i['id_utilisateur'] ?></p>
-        <p>Id Catégorie: <?= $i['id_categorie'] ?></p>
-        <p>Date: <?= $i['date'] ?></p>
-        <form action="editArticle.php" method="post">
-            <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
-        </form>
-        <form action="delArticle.php" method="post">
-            <button type="submit" name="id" value="<?= $i['id'] ?>">Suprimmer</button>
-        </form>
-    <?php endforeach ?>
-<?php else: ?>
-    <p>Aucun article n'est disponible.</p>
-<?php endif ?>
+<table class="listContent">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Article</th>
+            <th>Auteur</th>
+            <th>Catégorie</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php if ($data != false): ?>
+            <?php foreach ($data as $i): ?>
+                <tr class="listContent">
+                <th><?= $i['id'] ?></th>
+                <th><?= $i['article'] ?></th>
+                <th><?= $i['id_utilisateur'] ?></th>
+                <th><?= $i['id_categorie'] ?></th>
+                <th><?= $i['date'] ?></th>
+                <th>
+                    <form action="editArticle.php" method="post">
+                        <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
+                    </form>
+                </th>
+                <th>
+                    <form action="delArticle.php" method="post">
+                        <button type="submit" name="id" value="<?= $i['id'] ?>">Suprimmer</button>
+                    </form>
+                </th>
+                </tr>
+            <?php endforeach ?>
+        <?php else: ?>
+            <p>Aucun article n'est disponible.</p>
+        <?php endif ?>
+    </tbody>
+</table>
