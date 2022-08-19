@@ -39,3 +39,16 @@ function userLogin($username)
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;
 }
+
+function updateProfile($username, $email, $password, $id)
+{
+    global $dbh;
+    $stmt = $dbh->prepare("UPDATE utilisateurs
+                            SET username = :a,  email = :b, password = :c
+                            WHERE id = :d");
+    $stmt->bindValue('a', $username);
+    $stmt->bindValue('b', $email);
+    $stmt->bindValue('c', $password);
+    $stmt->bindValue('d', $id);
+    $stmt->execute();   
+}

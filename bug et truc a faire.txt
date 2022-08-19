@@ -3,8 +3,8 @@ Vérifier les informations formulaires pour Catégorie et Article
 Limiter le nombre de caractères sur la liste d'article
 Crée la page Article
 Crée la partie Commentaire
-Crée la partie Profil
 Faire le footer
 Terminer le front-end
 Optimiser le code, supprimer les redondances (Une seul page pour tous les Add/Edit/Del)
 * Nouvelle base de données avec plus de contenu
+* Re-coder la partie Profil quand je serais plus intelligent.

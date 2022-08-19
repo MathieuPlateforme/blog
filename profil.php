@@ -12,42 +12,53 @@ if(isLogged() == "navAdmin" || isLogged() == "navUser")
 {
     $id = $_SESSION['user']['id'];
     $user = getContent('utilisateurs', $id);
+    var_dump($user);
     if (array_key_exists('username', $_POST))
     {
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $passwordConfirm = $_POST['passwordConfirm'];
+        $passwordHash = $user['password'];
         $checkDuplicate = checkDuplicateAccount($username, $email);
         var_dump($_POST);
         if ($checkDuplicate != false)
         {
-            if ($user['username'] == $username || $user['email'] == $email)
+            if ($user['username'] == $username)
             {
-                echo "tout va bien";
+                if ($user['email'] == $email)
+                {
+                    if (strlen($password) > 0)
+                    {
+                        if (strlen($password) > 7 && $password == $passwordConfirm)
+                        {
+                            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                            updateProfile($username, $email, $passwordHash, $id);
+                        }
+                        else
+                        {
+                            $error = "Votre mot de passe n'est pas identique ou est en dessous de 8 caractères";
+                        }
+                    }
+                    else
+                    {
+                        updateProfile($username, $email, $passwordHash, $id);
+                    }
+                }
+                else
+                {
+                    $error = "E-mail déjà utilisé";
+                }
             }
             else
             {
-                $error = "Nom d'utilisateur ou e-mail déjà utiliser";
+                $error = "Nom d'utilisateur déjà utilisé";
             }
         }
         else
         {
-            echo "Pas de duplication";
+            updateProfile($username, $email, $passwordHash, $id);
         }
-        
-        if (strlen($password) > 0)
-        {
-            if (strlen($password) > 7 && $password == $passwordConfirm)
-            {
-                echo "bordel atomique";
-            }
-            else
-            {
-                $error = "Votre mot de passe n'est pas identique ou est en dessous de 8 caractères";
-            }
-        }
-       
     }
     include("tpl/layout.phtml");
 }
