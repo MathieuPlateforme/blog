@@ -1,0 +1,15 @@
+<section class="article">
+    <?php if(array_key_exists('id', $_GET)): ?>
+        <p><?= getContent('categories', $idCategory)['nom'] ?></p>
+        <article>
+        <p>
+            <?= $data['article'] ?>
+        </p>
+        </article>
+        <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
+    <?php else: ?>
+        <?php foreach ($data as $a): ?>
+            <p><a href="article.php?id=<?= $a['id']?>"><?= $a['article']?></a></p>
+        <?php endforeach ?>
+    <?php endif ?>
+</section>
