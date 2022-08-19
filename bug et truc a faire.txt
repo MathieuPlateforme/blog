@@ -1,7 +1,6 @@
 Converti le text d'un article en HTML si possible (bug)
 Vérifier les informations formulaires pour Catégorie et Article
 Limiter le nombre de caractères sur la liste d'article
-Crée la page Article
 Crée la partie Commentaire
 Faire le footer
 Terminer le front-end
