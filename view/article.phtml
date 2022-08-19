@@ -9,7 +9,7 @@
         <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
     <?php else: ?>
         <?php foreach ($data as $a): ?>
-            <p><a href="article.php?id=<?= $a['id']?>"><?= $a['article']?></a></p>
+            <p><a href="article.php?id=<?= $a['id']?>"><?= limit_text($a['article'], 6)?></a></p>
         <?php endforeach ?>
     <?php endif ?>
 </section>
