@@ -51,7 +51,22 @@ if(isLogged() == "navAdmin" || isLogged() == "navUser")
         }
         else
         {
-            updateProfile($username, $email, $passwordHash, $id);
+            if (strlen($password) > 0)
+            {
+                if (strlen($password) > 7 && $password == $passwordConfirm)
+                {
+                    $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                    updateProfile($username, $email, $passwordHash, $id);
+                }
+                else
+                {
+                    $error = "Votre mot de passe n'est pas identique ou est en dessous de 8 caractères";
+                }
+            }
+            else
+            {
+                updateProfile($username, $email, $passwordHash, $id);
+            }
         }
     }
     include("tpl/layout.phtml");
