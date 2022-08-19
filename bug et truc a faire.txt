@@ -8,3 +8,4 @@ Terminer le front-end
 Optimiser le code, supprimer les redondances (Une seul page pour tous les Add/Edit/Del)
 * Nouvelle base de données avec plus de contenu
 * Re-coder la partie Profil quand je serais plus intelligent.
+* Finaliser le MVC en créeant un controller si je comprend bien comment ça marche.

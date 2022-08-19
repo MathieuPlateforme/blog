@@ -1,6 +1,5 @@
 <?php
 session_start();
-include("config/config.php");
 include("lib/db.php");
 include("lib/functions.php");
 include("models/user.php");

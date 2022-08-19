@@ -22,37 +22,31 @@ if(isLogged() == "navAdmin" || isLogged() == "navUser")
         $passwordHash = $user['password'];
         $checkDuplicate = checkDuplicateAccount($username, $email);
         var_dump($_POST);
+        var_dump($checkDuplicate);
         if ($checkDuplicate != false)
         {
-            if ($user['username'] == $username)
+            if ($user['username'] == $checkDuplicate['username'])
             {
-                if ($user['email'] == $email)
+                if (strlen($password) > 0)
                 {
-                    if (strlen($password) > 0)
+                    if (strlen($password) > 7 && $password == $passwordConfirm)
                     {
-                        if (strlen($password) > 7 && $password == $passwordConfirm)
-                        {
-                            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-                            updateProfile($username, $email, $passwordHash, $id);
-                        }
-                        else
-                        {
-                            $error = "Votre mot de passe n'est pas identique ou est en dessous de 8 caractères";
-                        }
+                        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+                        updateProfile($username, $email, $passwordHash, $id);
                     }
                     else
                     {
-                        updateProfile($username, $email, $passwordHash, $id);
+                        $error = "Votre mot de passe n'est pas identique ou est en dessous de 8 caractères";
                     }
                 }
                 else
                 {
-                    $error = "E-mail déjà utilisé";
+                    updateProfile($username, $email, $passwordHash, $id);
                 }
             }
             else
             {
-                $error = "Nom d'utilisateur déjà utilisé";
+                $error = "Nom d'utilisateur ou e-mail déjà existant";
             }
         }
         else
