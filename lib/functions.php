@@ -72,6 +72,11 @@ function checkLogin($username, $password)
     }
     return $error;
 }
+function newDate()
+{
+    $date = new DateTime();
+    return $date->format('Y-m-d H:i:s');
+}
 
 function listContent($table, $ammount)
 {

@@ -6,8 +6,8 @@ include("models/user.php");
 include("models/articles.php");
 
 $view = "addCategory";
-$nav = isLogged();
 $category = "";
+$error = "";
 
 if(isLogged() == "navAdmin")
 {

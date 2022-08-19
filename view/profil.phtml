@@ -1,0 +1,14 @@
+<section class="addContent">
+<p class="error"><?php if ($error != ""): echo $error; endif ?></p>
+    <form action="profil.php" method="POST">
+        <p>Nom d'utilisateur:</p>
+        <p><input type="text" name="username" value="<?= $user['username'] ?>"></p>
+        <p>E-mail</p>
+        <p><input type="email" name="email" value="<?= $user['email'] ?>"></p>
+        <p>Modifier votre mot de passe:</p>
+        <p><input type="password" name="password" id=""></p>
+        <p>Confirmer votre nouveau mot de passe: </p>
+        <p><input type="password" name="passwordConfirm" id=""></p>
+        <p><button type="submit">Modifier</button></p>
+    </form>
+</section>

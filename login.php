@@ -5,7 +5,6 @@ include("lib/functions.php");
 include("models/user.php");
 
 $view = "login";
-$nav = isLogged();
 $username = "";
 
 try

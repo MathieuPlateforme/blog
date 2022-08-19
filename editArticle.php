@@ -6,7 +6,7 @@ include("models/user.php");
 include("models/articles.php");
 
 $view = "editArticle";
-$nav = isLogged();
+$error = "";
 
 if(isLogged() == "navAdmin")
 {
@@ -23,9 +23,15 @@ if(isLogged() == "navAdmin")
         $idCategory = $_POST['category'];
         $idArticle = $_POST['id'];
         $idUser = $_SESSION['user']['id'];
-
-        editArticle($article, $idCategory, $idUser, $idArticle);
-        header ('Location: listArticle.php');
+        if(strlen($article) < 50000)
+        {
+            editArticle($article, $idCategory, $idUser, $idArticle);
+            header('Location: listArticle.php');
+        }
+        else
+        {
+            $error = "Limite de caractères atteints";
+        }
     }
     include("tpl/layout.phtml");
 }

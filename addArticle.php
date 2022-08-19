@@ -6,8 +6,8 @@ include("models/user.php");
 include("models/articles.php");
 
 $view = "addArticle";
-$nav = isLogged();
 $article = "";
+$error = "";
 
 if(isLogged() == "navAdmin")
 {
@@ -18,7 +18,7 @@ if(isLogged() == "navAdmin")
         $idCategory = $_POST['category'];
         $idUser = $_SESSION['user']['id'];
 
-        if(strlen($article) < 1024)
+        if(strlen($article) < 50000)
         {
             addArticle($article, $idCategory, $idUser);
             header('Location: listArticle.php');

@@ -1,9 +1,14 @@
-<form action="editArticle.php" method="POST">
-    <p>Entrez votre article: <input type="text" name="article" value="<?= $data['article'] ?>" required></p>
-    <select name="category" id="category">
-    <?php foreach ($categories as $a): ?>
-        <option value="<?= $a['id'] ?>"><?= $a['nom']  ?></option>
-    <?php endforeach ?>
-    </select>
-    <button type="submit" name="id" value="<?= $id ?>">Confirmez</button>
-</form>
+<section class="addContent">
+<p class="error"><?php if ($error != ""): echo $error; endif ?></p>
+    <form action="editArticle.php" method="POST">
+        <p>Entrez votre article:</p> 
+        <p><textarea name="article" id="" cols="30" rows="10"><?= $data['article'] ?></textarea></p>
+        <p> Veuillez choisir une catégorie: </p>  
+        <p><select name="category" id="category">
+        <?php foreach ($categories as $a): ?>
+            <option value="<?= $a['id'] ?>"><?= $a['nom']  ?></option>
+        <?php endforeach ?>
+        </select></p>
+        <p><button type="submit" name="id" value="<?= $id ?>">Confirmez</button></p>
+    </form>
+</section>

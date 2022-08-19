@@ -1,4 +1,8 @@
-<form action="editCategory.php" method="POST">
-    <p>Entrez un nom de catégorie: <input type="text" name="nom" value="<?= $category['nom'] ?>" required></p>
-    <button type="submit" name="id" value="<?= $id ?>">Confirmez</button>
-</form>
+<section class="addContent">
+<p class="error"><?php if ($error != ""): echo $error; endif ?></p>
+    <form action="editCategory.php" method="POST">
+        <p>Entrez un nom de catégorie: </p>
+        <p><input type="text" name="nom" value="<?= $category['nom'] ?>" required></p>
+        <p><button type="submit" name="id" value="<?= $id ?>">Confirmez</button></p>
+    </form>
+</section>

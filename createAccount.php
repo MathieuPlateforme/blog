@@ -6,7 +6,6 @@ include("lib/functions.php");
 include("models/user.php");
 
 $view = "createAccount";
-$nav = isLogged();
 $username = "";
 $email = "";
 

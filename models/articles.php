@@ -25,7 +25,7 @@ function getCategoryByName($name)
     global $dbh;
     $stmt = $dbh->prepare("SELECT *
                             FROM categories
-                            WHERE name = :a)");
+                            WHERE name = :a");
     $stmt->bindValue("a", $name);
     $stmt->execute();
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -34,11 +34,12 @@ function getCategoryByName($name)
 function addArticle($article, $idCategory, $idUser)
 {
     global $dbh;
-    $stmt = $dbh->prepare("INSERT INTO articles (article, id_utilisateur, id_categorie) 
-                            VALUES (:a, :b, :c)");
+    $stmt = $dbh->prepare("INSERT INTO articles (article, id_utilisateur, id_categorie, date) 
+                            VALUES (:a, :b, :c, :d)");
     $stmt->bindValue('a', $article);
     $stmt->bindValue('b', $idUser);
     $stmt->bindValue('c', $idCategory);
+    $stmt->bindValue('d', newDate());
     $stmt->execute();   
 }
 

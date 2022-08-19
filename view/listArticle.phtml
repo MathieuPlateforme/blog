@@ -15,8 +15,8 @@
                 <tr class="listContent">
                 <th><?= $i['id'] ?></th>
                 <th><?= $i['article'] ?></th>
-                <th><?= $i['id_utilisateur'] ?></th>
-                <th><?= $i['id_categorie'] ?></th>
+                <th><?= getContent('utilisateurs', $i['id_utilisateur'])['username']  ?></th>
+                <th><?= getContent('categories', $i['id_categorie'])['nom']  ?></th>
                 <th><?= $i['date'] ?></th>
                 <th>
                     <form action="editArticle.php" method="post">
