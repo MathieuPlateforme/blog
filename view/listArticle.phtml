@@ -1,8 +1,9 @@
-<a href="addArticle.php">Ajouter un article</a>
+<h1 class="add"><a href="addArticle.php">Ajouter un article</a></h1>
 <table class="listContent">
     <thead>
         <tr>
             <th>Id</th>
+            <th>Titre</th>
             <th>Article</th>
             <th>Auteur</th>
             <th>Catégorie</th>
@@ -14,7 +15,8 @@
             <?php foreach ($data as $i): ?>
                 <tr class="listContent">
                 <th><a href="article.php?id=<?= $i['id'] ?>"><?= $i['id'] ?></a></th>
-                <th><?= limit_text($i['article'], 6) ?></th>
+                <th><?= limit_text($i['titre'], 6) ?></th>
+                <th><?= limit_text($i['article'], 4) ?></th>
                 <th><?= getContent('utilisateurs', $i['id_utilisateur'])['username']  ?></th>
                 <th><?= getContent('categories', $i['id_categorie'])['nom']  ?></th>
                 <th><?= $i['date'] ?></th>

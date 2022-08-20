@@ -31,15 +31,16 @@ function getCategoryByName($name)
     $data = $stmt->fetch(PDO::FETCH_ASSOC);
     return $data;       
 }
-function addArticle($article, $idCategory, $idUser)
+function addArticle($article, $titre, $idUser, $idCategory)
 {
     global $dbh;
-    $stmt = $dbh->prepare("INSERT INTO articles (article, id_utilisateur, id_categorie, date) 
-                            VALUES (:a, :b, :c, :d)");
+    $stmt = $dbh->prepare("INSERT INTO articles (article, titre, id_utilisateur, id_categorie, date) 
+                            VALUES (:a, :b, :c, :d, :e)");
     $stmt->bindValue('a', $article);
-    $stmt->bindValue('b', $idUser);
-    $stmt->bindValue('c', $idCategory);
-    $stmt->bindValue('d', newDate());
+    $stmt->bindValue('b', $titre);
+    $stmt->bindValue('c', $idUser);
+    $stmt->bindValue('d', $idCategory);
+    $stmt->bindValue('e', newDate());
     $stmt->execute();   
 }
 

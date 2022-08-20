@@ -6,6 +6,10 @@ li
 {
     list-style: none;
 }
+a
+{
+    text-decoration: none;
+}
 
 header nav
 {
@@ -16,7 +20,6 @@ header nav
 }
 header nav a
 {
-    text-decoration: none;
     font-size: 1.2em;
     margin: 0 30px;
     color:rgb(171, 39, 204);
@@ -76,4 +79,8 @@ textarea
 .addContent .error
 {
     color: rgb(153, 4, 4);
+}
+.add
+{
+    text-align: center;
 }

@@ -7,6 +7,7 @@ include("models/articles.php");
 
 $view = "addArticle";
 $article = "";
+$titre = "";
 $error = "";
 
 if(isLogged() == "navAdmin")
@@ -15,12 +16,13 @@ if(isLogged() == "navAdmin")
     if(array_key_exists('article', $_POST))
     {
         $article = $_POST['article'];
+        $titre = $_POST['titre'];
         $idCategory = $_POST['category'];
         $idUser = $_SESSION['user']['id'];
 
-        if(strlen($article) < 50000)
+        if(strlen($article) < 50000 && strlen($titre) < 120)
         {
-            addArticle($article, $idCategory, $idUser);
+            addArticle($article, $titre, $idUser, $idCategory);
             header('Location: listArticle.php');
         }
         else
