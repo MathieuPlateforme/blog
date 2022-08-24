@@ -1,5 +1,5 @@
 <section class="addContent">
-<p class="error"><?php if ($error != ""): echo $error; endif ?></p>
+<p id="error"><?php if ($error != ""): echo $error; endif ?></p>
     <form action="editCategory.php" method="POST">
         <p>Entrez un nom de catégorie: </p>
         <p><input type="text" name="nom" value="<?= $category['nom'] ?>" required></p>

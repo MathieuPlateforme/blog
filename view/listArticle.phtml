@@ -1,5 +1,5 @@
 <h1 class="add"><a href="addArticle.php">Ajouter un article</a></h1>
-<table class="listContent">
+<table class="listContent" cellspacing="0" cellpadding="0">
     <thead>
         <tr>
             <th>Id</th>
@@ -8,28 +8,29 @@
             <th>Auteur</th>
             <th>Catégorie</th>
             <th>Date</th>
+            <th colspan="2">Edition</th>
         </tr>
     </thead>
     <tbody>
         <?php if ($data != false): ?>
             <?php foreach ($data as $i): ?>
                 <tr class="listContent">
-                <th><a href="article.php?id=<?= $i['id'] ?>"><?= $i['id'] ?></a></th>
-                <th><?= limit_text($i['titre'], 6) ?></th>
-                <th><?= limit_text($i['article'], 4) ?></th>
-                <th><?= getContent('utilisateurs', $i['id_utilisateur'])['username']  ?></th>
-                <th><?= getContent('categories', $i['id_categorie'])['nom']  ?></th>
-                <th><?= $i['date'] ?></th>
-                <th>
+                <td><a href="article.php?id=<?= $i['id'] ?>"><?= $i['id'] ?></a></td>
+                <td><?= limit_text($i['titre'], 4) ?></td>
+                <td><?= limit_text($i['article'], 4) ?></td>
+                <td><?= getContent('utilisateurs', $i['id_utilisateur'])['username']  ?></td>
+                <td><?= getContent('categories', $i['id_categorie'])['nom']  ?></td>
+                <td><?= $i['date'] ?></td>
+                <td>
                     <form action="editArticle.php" method="post">
                         <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
                     </form>
-                </th>
-                <th>
+                </td>
+                <td>
                     <form action="delArticle.php" method="post" onsubmit="return window.confirm('Vous êtes sur de vouloir supprimer cet article?');">
-                        <button name="id" value="<?= $i['id'] ?>" id="confirm">Suprimmer</button>
+                        <button name="id" value="<?= $i['id'] ?>" id="confirm">Supprimer</button>
                     </form>
-                </th>
+                </td>
                 </tr>
             <?php endforeach ?>
         <?php else: ?>

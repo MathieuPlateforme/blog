@@ -19,18 +19,20 @@ if(isLogged() == "navAdmin")
     }
     if (array_key_exists('article', $_POST))
     {
+        $titre = $_POST['titre'];
         $article = $_POST['article'];
         $idCategory = $_POST['category'];
         $idArticle = $_POST['id'];
         $idUser = $_SESSION['user']['id'];
-        if(strlen($article) < 50000)
+        
+        if(strlen($article) < ARTICLE_MAX && strlen($titre) < TITRE_MAX)
         {
-            editArticle($article, $idCategory, $idUser, $idArticle);
+            editArticle($titre, $article, $idCategory, $idUser, $idArticle);
             header('Location: listArticle.php');
         }
         else
         {
-            $error = "Limite de caractères atteints";
+            $error = "Limite de caractères atteints (Article: ".ARTICLE_MAX." Titre: ".TITRE_MAX.")";
         }
     }
     include("tpl/layout.phtml");

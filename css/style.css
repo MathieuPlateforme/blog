@@ -31,9 +31,11 @@ main
 textarea
 {
     border-radius: 25px;
-    padding: 10px;
+    padding: 20px;
     border-width: 2px;
     border-color: purple;
+    resize: none;
+    width: 70%;
 }
 .addContent
 {
@@ -70,11 +72,17 @@ textarea
 .listContent
 {
     width: 100%;
+    border: rgb(0, 0, 0) solid 1px;
 }
-.listContent th
+.listContent th , .listContent td
 {
     padding: 10px;
     text-align: center;
+    border: rgb(0, 0, 0) solid 1px;
+}
+.listContent tbody tr:nth-of-type(2n)
+{
+    background-color: rgb(230, 230, 230);
 }
 #error
 {

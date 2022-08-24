@@ -1,28 +1,29 @@
 <h1 class="add"><a href="addCategory.php">Ajouter une catégorie</a></h1>
 <p id="error"><?php if ($error != ""): echo $error; endif ?></p>
-<table class="listContent">
+<table class="listContent" cellspacing="0" cellpadding="0">
     <thead>
         <tr>
             <th>Id</th>
             <th>Nom de catégorie</th>
+            <th colspan="2">Edition</th>
         </tr>
     </thead>
     <tbody>
         <?php if ($data != false): ?>
             <?php foreach ($data as $i): ?>
                 <tr class="listContent">
-                <th><?= $i['id'] ?></th>
-                <th><?= $i['nom'] ?></th>
-                <th>
+                <td><?= $i['id'] ?></td>
+                <td><?= $i['nom'] ?></td>
+                <td>
                     <form action="editCategory.php" method="post">
                         <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
                     </form>
-                </th>
-                <th>
+                </td>
+                <td>
                     <form action="delCategory.php" method="post" onsubmit="return window.confirm('Vous êtes sur de vouloir supprimer cette catégorie?');">
-                        <button type="submit" name="id" value="<?= $i['id'] ?>">Suprimmer</button>
+                        <button type="submit" name="id" value="<?= $i['id'] ?>">Supprimer</button>
                     </form>
-                </th>
+                </td>
                 </tr>
             <?php endforeach ?>
         <?php else: ?>

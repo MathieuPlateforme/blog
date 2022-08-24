@@ -44,16 +44,17 @@ function addArticle($article, $titre, $idUser, $idCategory)
     $stmt->execute();   
 }
 
-function editArticle($article, $idCategory, $idUser, $idArticle)
+function editArticle($titre, $article, $idCategory, $idUser, $idArticle)
 {
     global $dbh;
     $stmt = $dbh->prepare("UPDATE articles 
-                            SET article = :a,  id_utilisateur = :b, id_categorie = :c
-                            WHERE id = :d");
-    $stmt->bindValue('a', $article);
-    $stmt->bindValue('b', $idUser);
-    $stmt->bindValue('c', $idCategory);
-    $stmt->bindValue('d', $idArticle);
+                            SET titre = :a, article = :b,  id_utilisateur = :c, id_categorie = :d
+                            WHERE id = :e");
+    $stmt->bindValue('a', $titre);
+    $stmt->bindValue('b', $article);
+    $stmt->bindValue('c', $idUser);
+    $stmt->bindValue('d', $idCategory);
+    $stmt->bindValue('e', $idArticle);
     $stmt->execute();   
 }
 

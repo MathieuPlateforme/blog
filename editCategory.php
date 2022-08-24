@@ -8,22 +8,26 @@ include("models/articles.php");
 $view = "editCategory";
 $error = "";
 
-if(isLogged() == "navAdmin")
+if(isLogged() == "navAdmin" && array_key_exists('id', $_POST))
 {
-    if (array_key_exists('id', $_POST))
-    {
-        $id = $_POST['id'];
-        $category = getContent('categories', $id);
-    }
+    $id = $_POST['id'];
+    $category = getContent('categories', $id);
+
     if (array_key_exists('nom', $_POST))
     {
         $name = $_POST['nom'];
         $id = $_POST['id'];
-
-        editCategory($name, $id);
-        header ('Location: listCategory.php');
+        
+        if (strlen($name) < CATEGORY_MAX)
+        { 
+            editCategory($name, $id);
+            header ('Location: listCategory.php');
+        }
+        else
+        {
+            $error = "Limite de caractères atteintes (".CATEGORY_MAX.")";
+        }
     }
-
     include("tpl/layout.phtml");
 }
 else
