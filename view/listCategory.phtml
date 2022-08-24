@@ -1,4 +1,5 @@
 <h1 class="add"><a href="addCategory.php">Ajouter une catégorie</a></h1>
+<p id="error"><?php if ($error != ""): echo $error; endif ?></p>
 <table class="listContent">
     <thead>
         <tr>
@@ -18,7 +19,7 @@
                     </form>
                 </th>
                 <th>
-                    <form action="delCategory.php" method="post">
+                    <form action="delCategory.php" method="post" onsubmit="return window.confirm('Vous êtes sur de vouloir suprimmer cette catégorie?');">
                         <button type="submit" name="id" value="<?= $i['id'] ?>">Suprimmer</button>
                     </form>
                 </th>

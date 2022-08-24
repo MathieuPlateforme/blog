@@ -16,7 +16,7 @@ if(isLogged() == "navAdmin")
         }
         else
         {
-            $error = "Catégorie utiliser dans un article, veuillez changer la catégorie de l'article";
+            $_SESSION['error'] = "Erreur: Catégorie utilisée dans un ou plusieurs articles";
         } 
         header("Location: listCategory.php");
     }

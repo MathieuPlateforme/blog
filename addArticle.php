@@ -20,14 +20,14 @@ if(isLogged() == "navAdmin")
         $idCategory = $_POST['category'];
         $idUser = $_SESSION['user']['id'];
 
-        if(strlen($article) < 50000 && strlen($titre) < 120)
+        if(strlen($article) < ARTICLE_MAX && strlen($titre) < TITRE_MAX)
         {
             addArticle($article, $titre, $idUser, $idCategory);
             header('Location: listArticle.php');
         }
         else
         {
-            $error = "Limite de caractères atteints";
+            $error = "Limite de caractères atteints (Article: ".ARTICLE_MAX." Titre: ".TITRE_MAX.")";
         }
     }
     include("tpl/layout.phtml");

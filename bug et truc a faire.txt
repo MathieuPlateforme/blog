@@ -1,5 +1,4 @@
 Converti le text d'un article en HTML si possible (bug)
-Vérifier les informations formulaires pour Catégorie et Article
 Crée la partie Commentaire
 Faire le footer
 Terminer le front-end

@@ -6,6 +6,7 @@ include("models/user.php");
 include("models/articles.php");
 
 $view = "article";
+$comments = [];
 
 if(array_key_exists('id', $_GET))
 {

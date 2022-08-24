@@ -116,3 +116,11 @@ function limit_text($text, $limit) {
     }
     return $text;
 }
+
+function unsetError($error)
+{
+    if (array_key_exists("error", $error))
+    {
+        unset($_SESSION['error']);
+    }
+}

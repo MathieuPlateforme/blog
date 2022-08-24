@@ -1,15 +1,31 @@
 <section class="article">
     <?php if(array_key_exists('id', $_GET)): ?>
-        <p><?= getContent('categories', $idCategory)['nom'] ?></p>
-        <article>
-        <p>
-            <?= $data['article'] ?>
-        </p>
+        <article class="article">
+            <p><?= getContent('categories', $idCategory)['nom'] ?></p>
+            <article>
+            <p>
+                <?= $data['article'] ?>
+            </p>
+            </article>
+            <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
         </article>
-        <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
+        <section id="commentsList">
+            <section>
+                <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                <button type="submit" id="post">Envoyez</button>
+            </section>
+        <?php foreach ($comments as $c): ?>
+            <p><?= getContent('utilisateurs', $comments['id_utilisateur'])['username'] ?></p>
+            <p><?= $comments['commentaires'] ?></p>
+            <p><?= $comments['date'] ?></p>
+        <?php endforeach ?>
+        </section>
     <?php else: ?>
         <?php foreach ($data as $a): ?>
-            <p><a href="article.php?id=<?= $a['id']?>"><?= $a['titre'] ?></a></p>
+            <article class="articleList">
+                <p><a href="article.php?id=<?= $a['id']?>"><?= $a['titre'] ?></a></p>
+                <p>Publiée le: <?= $a['date'] ?> par <?= getContent('utilisateurs', $a['id_utilisateur'])['username'] ?> </p>
+            </article>
         <?php endforeach ?>
     <?php endif ?>
 </section>

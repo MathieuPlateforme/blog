@@ -1,5 +1,5 @@
 <section class="addContent">
-<p class="error"><?php if ($error != ""): echo $error; endif ?></p>
+<p id="error"><?php if ($error != ""): echo $error; endif ?></p>
     <form action="addArticle.php" method="POST">
         <p>Entrez un titre d'article: </p>
         <p><input type="text" name="titre" value="<?= $titre ?>" required></p>

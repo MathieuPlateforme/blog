@@ -76,7 +76,7 @@ textarea
     padding: 10px;
     text-align: center;
 }
-.addContent .error
+#error
 {
     color: rgb(153, 4, 4);
 }

@@ -11,15 +11,15 @@ if(isLogged() == "navAdmin")
     {
         $id = $_POST['id'];
         deleteContent('articles', $id);
-        header("Location: listArticle.php");
+       header("Location: listArticle.php");
     }
     else
     {
-        header("Location: index.php");
+       header("Location: index.php");
     }
     include("tpl/layout.phtml");
 }
 else
 {
-    header("Location: index.php");
+   header("Location: index.php");
 }
