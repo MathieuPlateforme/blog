@@ -4,7 +4,7 @@
             <p><?= getContent('categories', $idCategory)['nom'] ?></p>
             <article>
             <p>
-                <?= $data['article'] ?>
+                <?= nl2br($data['article'])  ?>
             </p>
             </article>
             <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
