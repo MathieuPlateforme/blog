@@ -6,7 +6,7 @@
         <p>Entrez votre article:</p> 
         <p><textarea name="article" id="" cols="30" rows="10"><?= $article ?></textarea></p>
         <p> Veuillez choisir une catégorie: </p>  
-        <p><select name="category" id="category">
+        <p><select name="category" id="category" required>
         <?php foreach ($categories as $a): ?>
             <option value="<?= $a['id'] ?>"><?= $a['nom']  ?></option>
         <?php endforeach ?>

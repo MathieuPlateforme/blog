@@ -87,6 +87,7 @@ textarea
 #error
 {
     color: rgb(153, 4, 4);
+    text-align: center;
 }
 .add
 {
