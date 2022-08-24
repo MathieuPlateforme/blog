@@ -74,7 +74,7 @@ function checkLogin($username, $password)
 }
 function newDate()
 {
-    $date = new DateTime();
+    $date = new DateTime("now", new DateTimeZone("Europe/Paris"));
     return $date->format('Y-m-d H:i:s');
 }
 
