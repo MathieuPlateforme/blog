@@ -23,8 +23,11 @@
     <?php else: ?>
         <?php foreach ($data as $a): ?>
             <article class="articleList">
-                <p><a href="article.php?id=<?= $a['id']?>"><?= $a['titre'] ?></a></p>
-                <p>Publiée le: <?= $a['date'] ?> par <?= getContent('utilisateurs', $a['id_utilisateur'])['username'] ?> </p>
+            <a href="article.php?id=<?= $a['id']?>">
+                <h2><?= $a['titre'] ?></h2>
+                <p> <?= limit_text($a['article'], 20) ?></p>
+                <h6>Publiée le: <?= $a['date'] ?> par <?= getContent('utilisateurs', $a['id_utilisateur'])['username'] ?> </h6>
+            </a>
             </article>
         <?php endforeach ?>
     <?php endif ?>

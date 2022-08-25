@@ -1,8 +1,11 @@
 Converti le text d'un article en HTML si possible (bug)
+Date article qui n'est pas en bas d'article (bug)
 Crée la partie Commentaire
+Trouver un article en fonction de sa catégorie
+Ajouter des commentaires (code)
 Faire le footer
-Terminer le front-end
-Optimiser le code, supprimer les redondances (Une seul page pour tous les Add/Edit/Del)
+* Terminer le front-end
+* Optimiser le code, supprimer les redondances (Une seul page pour tous les Add/Edit/Del)
 * Nouvelle base de données avec plus de contenu
 * Re-coder la partie Profil quand je serais plus intelligent.
 * Finaliser le MVC en créeant un controller si je comprend bien comment ça marche.

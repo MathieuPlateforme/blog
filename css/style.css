@@ -69,6 +69,8 @@ textarea
     font-size: 1.5em;
     padding: 10px;
 }
+
+
 .listContent
 {
     width: 100%;
@@ -84,6 +86,24 @@ textarea
 {
     background-color: rgb(230, 230, 230);
 }
+
+.listContent button
+{
+    background: none;
+    transition: .2s;
+
+}
+.listContent td .edit:hover
+{
+    color: rgb(6, 143, 229);
+    border-color: rgb(6, 143, 229);
+}
+.listContent td .del:hover
+{
+    color: rgb(229, 6, 6);
+    border-color: rgb(229, 6, 6);
+}
+
 #error
 {
     color: rgb(153, 4, 4);
@@ -92,4 +112,43 @@ textarea
 .add
 {
     text-align: center;
+}
+
+.article
+{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.article .articleList
+{
+    margin-top: 30px;
+    width: 43%;
+    padding: 0 20px;
+    max-height: 100%;
+    text-align: center;
+    background-color: aliceblue;
+    transition: transform .2s;
+}
+.article .articleList:hover
+{
+    transform: scale(1.05);
+}
+.articleList h2
+{
+    color:rgb(0, 0, 0);
+    border-bottom: 1px rgb(181, 181, 181) solid;
+    padding-bottom: 20px;
+}
+
+.articleList p
+{
+    padding: 20px 0;
+    color:rgb(0, 0, 0);
+}
+.articleList h6
+{
+    font-size: 0.8em;
+    align-self: flex-end;
+    bottom: 0;
 }

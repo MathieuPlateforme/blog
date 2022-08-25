@@ -23,12 +23,12 @@
                 <td><?= $i['date'] ?></td>
                 <td>
                     <form action="editArticle.php" method="post">
-                        <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
+                        <button class="edit" type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
                     </form>
                 </td>
                 <td>
                     <form action="delArticle.php" method="post" onsubmit="return window.confirm('Vous êtes sur de vouloir supprimer cet article?');">
-                        <button name="id" value="<?= $i['id'] ?>" id="confirm">Supprimer</button>
+                        <button class="del" name="id" value="<?= $i['id'] ?>" id="confirm">Supprimer</button>
                     </form>
                 </td>
                 </tr>

@@ -17,7 +17,7 @@ if(array_key_exists('id', $_GET))
 }
 else
 {
-    $data = listContent('articles', 5);
+    $data = listContent('articles', 10);
 }
 
 include("tpl/layout.phtml");

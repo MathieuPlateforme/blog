@@ -16,12 +16,12 @@
                 <td><?= $i['nom'] ?></td>
                 <td>
                     <form action="editCategory.php" method="post">
-                        <button type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
+                        <button class="edit" type="submit" name="id" value="<?= $i['id'] ?>">Modifier</button>
                     </form>
                 </td>
                 <td>
                     <form action="delCategory.php" method="post" onsubmit="return window.confirm('Vous êtes sur de vouloir supprimer cette catégorie?');">
-                        <button type="submit" name="id" value="<?= $i['id'] ?>">Supprimer</button>
+                        <button class="del" type="submit" name="id" value="<?= $i['id'] ?>">Supprimer</button>
                     </form>
                 </td>
                 </tr>
