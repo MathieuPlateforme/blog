@@ -1,5 +1,6 @@
 <section class="article">
     <?php if(array_key_exists('id', $_GET)): ?>
+        <p id="error"></p>
         <article class="article">
             <p><?= getContent('categories', $idCategory)['nom'] ?></p>
             <article>
@@ -15,9 +16,9 @@
                 <button type="submit" id="post">Envoyez</button>
             </section>
         <?php foreach ($comments as $c): ?>
-            <p><?= getContent('utilisateurs', $comments['id_utilisateur'])['username'] ?></p>
-            <p><?= $comments['commentaires'] ?></p>
-            <p><?= $comments['date'] ?></p>
+            <p><?= getContent('utilisateurs', $c['id_utilisateur'])['username'] ?></p>
+            <p><?= $c['commentaires'] ?></p>
+            <p><?= $c['date'] ?></p>
         <?php endforeach ?>
         </section>
     <?php else: ?>
@@ -25,6 +26,7 @@
             <article class="articleList">
             <a href="article.php?id=<?= $a['id']?>">
                 <h2><?= $a['titre'] ?></h2>
+                <p><a href="article.php?category=<?= getContent('categories', $a['id_categorie'])['id'] ?>"><?= getContent('categories', $a['id_categorie'])['nom'] ?></a></p>
                 <p> <?= limit_text($a['article'], 20) ?></p>
                 <h6>Publiée le: <?= $a['date'] ?> par <?= getContent('utilisateurs', $a['id_utilisateur'])['username'] ?> </h6>
             </a>

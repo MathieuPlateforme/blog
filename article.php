@@ -14,10 +14,17 @@ if(array_key_exists('id', $_GET))
     $data = getContent('articles', $id);
     $idCategory = $data['id_categorie'];
     $idUtilisateur = $data['id_utilisateur'];
+    $comments = listComment($id);
+}
+elseif(array_key_exists('category', $_GET))
+{
+    $id = $_GET['category'];
+    $data = getArticleByCategory($id);
 }
 else
 {
     $data = listContent('articles', 10);
 }
+
 
 include("tpl/layout.phtml");
