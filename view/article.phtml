@@ -2,6 +2,7 @@
     <?php if(array_key_exists('id', $_GET)): ?>
         <p id="error"></p>
         <article class="article">
+            <input type="hidden" id="idArticle" value="<?= $data['id'] ?>">
             <p><?= getContent('categories', $idCategory)['nom'] ?></p>
             <article>
             <p>
@@ -11,14 +12,25 @@
             <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
         </article>
         <section id="commentsList">
-            <section>
-                <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-                <button type="submit" id="post">Envoyez</button>
-            </section>
+            <?php if (isLogged() == "navAdmin" || isLogged() == "navUser"): ?>
+                <input type="hidden" id="idUser" value="<?= $_SESSION['user']['id'] ?>">
+                <section>
+                    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+                    <button type="submit" id="post">Envoyez</button>
+                </section>
+            <?php endif ?>
         <?php foreach ($comments as $c): ?>
-            <p><?= getContent('utilisateurs', $c['id_utilisateur'])['username'] ?></p>
-            <p><?= $c['commentaires'] ?></p>
-            <p><?= $c['date'] ?></p>
+            <section class="comment" id="<?= $c['id'] ?>">
+                <p><?= getContent('utilisateurs', $c['id_utilisateur'])['username'] ?></p>
+                <p><?= $c['commentaires'] ?></p>
+                <p><?= $c['date'] ?></p>
+                <?php if (isLogged() == "navAdmin"): ?>
+                    <form action="delComment.php" method="post">
+                        <input type="hidden" name="idArticle" value="<?= $data['id'] ?>">
+                        <button type="submit" name="id" value="<?= $c['id'] ?>">Supprimer</button>
+                    </form>
+                <?php endif ?>
+            </section>
         <?php endforeach ?>
         </section>
     <?php else: ?>

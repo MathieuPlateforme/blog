@@ -21,3 +21,7 @@ if(array_key_exists('comment', $_POST))
         $error = "Limite de caractères atteintes (".COMMENT_MAX.")";
     }
 }
+else
+{
+    header("Location: index.php");
+}
