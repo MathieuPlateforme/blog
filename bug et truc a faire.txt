@@ -1,8 +1,4 @@
 Converti le text d'un article en HTML si possible (bug)
-Date article qui n'est pas en bas d'article (bug)
-Convertir le commentaire en string pour bonne enregistrement dans BDD (bug)
-Crée la partie Commentaire
-Faire le footer
 * Terminer le front-end
 * Optimiser le code, supprimer les redondances (Une seul page pour tous les Add/Edit/Del)
 * Nouvelle base de données avec plus de contenu

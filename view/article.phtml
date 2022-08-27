@@ -1,22 +1,23 @@
-<section class="article">
-    <?php if(array_key_exists('id', $_GET)): ?>
+<?php if(array_key_exists('id', $_GET)): ?>
+    <section class="container">
         <p id="error"></p>
         <article class="article">
             <input type="hidden" id="idArticle" value="<?= $data['id'] ?>">
-            <p><?= getContent('categories', $idCategory)['nom'] ?></p>
+            <h2><?= $data['titre'] ?></h2>
             <article>
-            <p>
-                <?= nl2br($data['article'])  ?>
-            </p>
+                <p>
+                    <?= nl2br($data['article'])  ?>
+                </p>
             </article>
+            <h3><a href="article.php?category=<?= getContent('categories', $data['id_categorie'])['id'] ?>"><?= getContent('categories', $data['id_categorie'])['nom'] ?></a></h3>
             <p>Publiée le <?= $data['date'] ?> par <?= getContent('utilisateurs', $idUtilisateur)['username'] ?> </p>
         </article>
         <section id="commentsList">
             <?php if (isLogged() == "navAdmin" || isLogged() == "navUser"): ?>
                 <input type="hidden" id="idUser" value="<?= $_SESSION['user']['id'] ?>">
-                <section>
-                    <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
-                    <button type="submit" id="post">Envoyez</button>
+                <section class="sendComment">
+                    <textarea name="comment" id="comment" cols="20" rows="10"></textarea>
+                    <button type="submit" id="post" class="send">Envoyez</button>
                 </section>
             <?php endif ?>
         <?php foreach ($comments as $c): ?>
@@ -24,25 +25,27 @@
                 <p><?= getContent('utilisateurs', $c['id_utilisateur'])['username'] ?></p>
                 <p><?= $c['commentaires'] ?></p>
                 <p><?= $c['date'] ?></p>
-                <?php if (isLogged() == "navAdmin"): ?>
+                <?php if (isLogged() == "navAdmin" || $_SESSION['user']['id'] == $c['id_utilisateur']): ?>
                     <form action="delComment.php" method="post">
                         <input type="hidden" name="idArticle" value="<?= $data['id'] ?>">
-                        <button type="submit" name="id" value="<?= $c['id'] ?>">Supprimer</button>
+                        <button type="submit" name="id" value="<?= $c['id'] ?>" class="del">Supprimer</button>
                     </form>
                 <?php endif ?>
             </section>
         <?php endforeach ?>
-        </section>
-    <?php else: ?>
+        </article>
+    </section>
+<?php else: ?>
+    <section class="articleList container">
         <?php foreach ($data as $a): ?>
-            <article class="articleList">
+            <article class="article">
             <a href="article.php?id=<?= $a['id']?>">
                 <h2><?= $a['titre'] ?></h2>
-                <p><a href="article.php?category=<?= getContent('categories', $a['id_categorie'])['id'] ?>"><?= getContent('categories', $a['id_categorie'])['nom'] ?></a></p>
+                <h3><a href="article.php?category=<?= getContent('categories', $a['id_categorie'])['id'] ?>"><?= getContent('categories', $a['id_categorie'])['nom'] ?></a></h3>
                 <p> <?= limit_text($a['article'], 20) ?></p>
                 <h6>Publiée le: <?= $a['date'] ?> par <?= getContent('utilisateurs', $a['id_utilisateur'])['username'] ?> </h6>
             </a>
             </article>
         <?php endforeach ?>
-    <?php endif ?>
-</section>
+    </section>
+<?php endif ?>

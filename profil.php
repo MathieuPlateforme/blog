@@ -12,7 +12,6 @@ if(isLogged() == "navAdmin" || isLogged() == "navUser")
 {
     $id = $_SESSION['user']['id'];
     $user = getContent('utilisateurs', $id);
-    var_dump($user);
     if (array_key_exists('username', $_POST))
     {
         $username = $_POST['username'];
