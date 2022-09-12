@@ -5,8 +5,6 @@ include("lib/functions.php");
 include("models/user.php");
 include("models/articles.php");
 
-var_dump($_POST);
-
 if(array_key_exists('comment', $_POST))
 {
     $comment = $_POST['comment'];
@@ -18,7 +16,7 @@ if(array_key_exists('comment', $_POST))
     }
     else
     {
-        $error = "Limite de caractères atteintes (".COMMENT_MAX.")";
+        $error = "Limite de caractères atteintes: (".COMMENT_MAX.")";
     }
 }
 else
